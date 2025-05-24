@@ -12,6 +12,10 @@ const paddleWidth = 10, paddleHeight = 80;
 // Ball state (position (x, y), velocity (vx vy), radius)
 let ball = { x: 300, y: 200, vx: 4, vy: 2, radius: 8 };
 
+
+const leftX = 10;
+const rightX = canvas.width - paddleWidth - 10;
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -22,10 +26,10 @@ function draw() {
     ctx.fill(); // Fill the circle with the current fill style
 
     // Player paddle
-    ctx.fillRect(playerNumber === 0 ? 10 : 580, paddleY, paddleWidth, paddleHeight);
+    ctx.fillRect(playerNumber === 0 ? leftX : rightX, paddleY, paddleWidth, paddleHeight);
 
     // Opponent paddle
-    ctx.fillRect(playerNumber === 0 ? 580 : 10, opponentY, paddleWidth, paddleHeight);
+    ctx.fillRect(playerNumber === 0 ? rightX : leftX, opponentY, paddleWidth, paddleHeight);
 }
 
 function update() {
